@@ -15,13 +15,25 @@ namespace ormico.WebApi406.Controllers
     [RoutePrefix("api/Example")]
     public class ExampleController : ApiController
     {
+        /*
         [Route("")]
         public IHttpActionResult Post([ModelBinder(typeof(XDocumentModelBinder))]XDocument xmismo)
         {
-            XDocument rc = null;
+            XDocument rc = XDocument.Parse("<blah>hello</blah>");
 
-            return this.Ok(rc);
+            return this.Ok(rc.ToString());
             //return rc;
+        }
+        */
+
+        [Route("")]
+        public HttpResponseMessage Post([ModelBinder(typeof(XDocumentModelBinder))]XDocument xmismo)
+        {
+            string XML = "<blah>hello</blah>";
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(XML, System.Text.Encoding.UTF8, "application/xml")
+            };
         }
     }
 }

@@ -13,8 +13,9 @@ namespace ormico.WebApi406
             //config.Formatters.Remove(config.Formatters.JsonFormatter);
 
             config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.JsonFormatter);
-            config.Formatters.XmlFormatter.UseXmlSerializer = true;
+            //config.Formatters.XmlFormatter.UseXmlSerializer = true;
 
+            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
